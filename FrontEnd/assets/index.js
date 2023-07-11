@@ -12,12 +12,28 @@ fetch('http://localhost:5678/api/categories')
 })
 
 function displayCategorie(categories) {
+    let h3All = document.createElement('h3');
+    h3All.innerHTML = "Tous";
+    h3All.classList.add('active');
+    h3All.addEventListener('click', () => {
+        displayWork(works);
+        console.log("Tous");
+        console.log(works);
+
+        let categorieActive = categoriesContainer.querySelector('.active');
+        if (categorieActive) categorieActive.classList.remove('active');
+        h3All.classList.add('active');
+    });
+    categoriesContainer.appendChild(h3All);
+
     for (let categorie of categories) {
         let h3Categories = document.createElement('h3');
         h3Categories.innerHTML = categorie.name;
         h3Categories.addEventListener('click', () => {
             let worksFiltered = works.filter(work => work.categoryId === categorie.id);
             displayWork(worksFiltered);
+            console.log(categorie.name);
+            console.log(worksFiltered);
             
             let categorieActive = categoriesContainer.querySelector('.active');
             if (categorieActive) categorieActive.classList.remove('active');

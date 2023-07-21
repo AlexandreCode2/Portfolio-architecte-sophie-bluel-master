@@ -21,9 +21,9 @@ userForm.addEventListener('submit', (event) => {
         } else {
             throw new Error("Email ou mot de passse incorect");
         }
-    }).then(data => {
-        if (data.token) {
-            localStorage.setItem('user', data.token);
+    }).then(user => {
+        if (user.token) {
+            localStorage.setItem('user', user.token);
             window.location.href = 'http://127.0.0.1:5501/FrontEnd/index.html';
         } else {
             throw new Error("Erreur de connexion");

@@ -59,74 +59,19 @@ function displayWork(worksToDisplay) {
     }
 }
 
+function userConnected() {
+    if(localStorage.getItem('token')) {
+        let navBar = document.querySelector('.navbar');
+        let modif1 = document.querySelector('.modif-icon-1');
+        let modif2 = document.querySelector('.modif-icon-2');
+        let login = document.getElementById('login');
+        let logout = document.getElementById('logout');
+        navBar.style.display = 'flex';
+        modif1.style.visibility = 'visible';
+        modif2.style.visibility = 'visible';
+        login.style.display = 'none';
+        logout.style.display = 'block'
+    }
+}
 
-
-
-
-
-
-
-
-
-
-// // let categoriesContainer = document.querySelector('.categories');
-// // let worksContainer = document.querySelector('.gallery');
-
-// // let categories = [];
-// // let works = [];
-
-// // fetch('http://localhost:5678/api/categories')
-// // .then(response => response.json())
-// // .then(data => {
-// //     displayCategorie(data);
-// //     categories = data;
-// //     console.log(data);
-// // })
-
-// function displayCategorie(categories) {
-//     let div = document.createElement('div');
-//     div.className = "filtre"; // Une seule div "filtre"
-
-//     let h3Tous = document.createElement('h3'); // Créer et ajouter le filtre "Tous"
-//     h3Tous.innerHTML = "Tous";
-//     h3Tous.classList.add('active'); // "Tous" est actif par défaut
-//     h3Tous.addEventListener('click', () => {
-//         displayWork(); // Affiche tous les travaux
-//         let active = document.querySelector('.filtre .active');
-//         if (active) active.classList.remove('active');
-//         h3Tous.classList.add('active');
-//     });
-//     div.appendChild(h3Tous);
-
-//     for (let categorie of categories) {
-//         let h3 = document.createElement('h3');
-//         h3.innerHTML = categorie.name;
-//         h3.addEventListener('click', () => {
-//             displayWork(categorie.id);
-//             console.log(categorie.id);
-//             let active = document.querySelector('.filtre .active');
-//             if (active) active.classList.remove('active');
-//             h3.classList.add('active');
-//         });
-//         div.appendChild(h3); // Ajout des h3 à la div "filtre"
-//     }
-//     categoriesContainer.appendChild(div); // Ajout de la div "filtre" à categoriesContainer
-// }
-
-// // fetch('http://localhost:5678/api/works')
-// // .then(response => response.json())
-// // .then(data => {
-// //     works = data;
-// //     displayWork(); // Affiche tous les travaux au chargement initial
-// //     console.log(data);
-// // })
-
-// // function displayWork(categoryId) {
-// //     worksContainer.innerHTML = ""; // Efface les travaux précédents
-// //     let worksToDisplay = categoryId ? works.filter(work => work.categoryId === categoryId) : works;
-// //     for (let work of worksToDisplay) {
-// //         let figure = document.createElement('figure');
-// //         figure.innerHTML = `<img src="${work.imageUrl}"><figcaption>${work.title}</figcaption>`;
-// //         worksContainer.appendChild(figure);
-// //     }
-// // }
+userConnected();

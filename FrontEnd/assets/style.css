@@ -8,7 +8,7 @@ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
+b, u, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -36,6 +36,7 @@ ol, ul {
 }
 a {
 	text-decoration: none;
+	color: black;
 }
 blockquote, q {
 	quotes: none;
@@ -110,6 +111,7 @@ nav li img{
 #introduction {
 	display: flex;
 	align-items: center;
+	margin-bottom: 15px;
 }
 #introduction figure {
 	flex: 1
@@ -226,3 +228,85 @@ footer nav ul {
 	color: white;
 }
 
+/* CSS APRES LOGIN */
+
+.navbar{
+	background-color: black;
+	height: 60px;
+	display: none;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	color: white;
+
+}
+
+.navbar-content {
+	color: black;
+	background-color: white;
+	border-radius: 60px;
+	display: flex;
+	justify-content: center;
+	padding: 11px 23px;
+	margin-left: 21px;
+	border: none;
+	font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.modif-icon {
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	gap: 10px;
+}
+
+.modif-icon-1 {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	width: 90%;
+	margin: auto;
+	visibility: hidden;
+}
+
+.modif-icon-2 {
+	display: flex;
+    flex-direction: row;
+    margin: 0;
+    gap: 10px;
+    padding-top: 10px;
+    padding-left: 31px;
+	visibility: hidden;
+}
+
+.projets-login {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.fa-regular {
+	color: black;
+	display: block;
+}
+
+#navbar-fa-pen {
+	color: white;
+	border: none;
+}
+
+i {
+	display: block;
+	color: black;
+	border: none;
+}
+
+
+#login {
+	display: block;
+}
+
+#logout {
+	display: none;
+}

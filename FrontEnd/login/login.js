@@ -18,17 +18,19 @@ userForm.addEventListener('submit', (event) => {
     }).then(response => {
         if (response.ok) {
             return response.json();
-        } else {
-            throw new Error("Email ou mot de passse incorect");
-        }
-    }).then(user => {
-        if (user.token) {
-            localStorage.setItem('user', user.token);
-            window.location.href = 'http://127.0.0.1:5501/FrontEnd/index.html';
+        } else if (response.status === 401) {
+            throw new Error("Email ou mot de passe incorect");
+        } else if (response.status === 404){
+            throw new Error("Email ou mot de passe incorect");
         } else {
             throw new Error("Erreur de connexion");
         }
+    }).then(data => {
+        if (data.token) {
+            localStorage.setItem('token', data.token);
+            window.location.href = 'http://127.0.0.1:5501/FrontEnd/index.html';
+        }
     }).catch(error => {
-        throw new Error("Erreur : " + error.message);
+        alert("Erreur : " + error.message);
     });
 });
